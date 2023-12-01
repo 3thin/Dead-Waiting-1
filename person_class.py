@@ -40,7 +40,7 @@ class Person:
         return self.current_room
 
     def add_to_bag(self, item):
-      if len(self.inventory) >= 5:
+      if len(self.inventory) >= 7:
         functions.print_conversationally("You have too many items in your bag!")
       elif item in world.main_character.current_room.foods:
         self.foods.append(item)
