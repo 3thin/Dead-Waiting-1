@@ -252,7 +252,7 @@ class Game:
                 functions.print_conversationally(
                   "Forget that! What else do you wanna do?")
 
-            elif "COW" in user_input and beef not in main_character.current_room.foods and "DROP" not in user_input:
+            elif "COW" in user_input and beef not in main_character.current_room.foods and "DROP" not in user_input and "EAT" not in user_input:
               functions.print_conversationally(f"Keep it movin' pal. You've already got the only cow meat available. Don't be greedy.")
 
             elif "CHICKEN" in user_input and chicken in main_character.current_room.foods:
@@ -312,17 +312,20 @@ class Game:
             elif "KNIFE" in user_input and "DROP" not in user_input and knife not in main_character.current_room.items and knife in main_character.inventory:
               functions.print_conversationally(f"Seriously? You want another knife? God damn...")
 
-            elif "CANDLE" in user_input and "LIGHT" not in user_input and candle in main_character.current_room.items:
+            elif "CANDLE" in user_input  and candle in main_character.current_room.items:
               objects.candle()
               take_candle = functions.menu("\n\nAdd to bag?",
                ["Yes", "No"])
               if take_candle == "Yes":
-                main_character.add_to_bag(Item(candle))
+                main_character.add_to_bag(candle)
                 functions.print_conversationally("You added the candle!")
                 dining_room.remove_item(candle)
               elif take_candle == "No":
                 functions.print_conversationally(
                   "Forget that! What else do you wanna do?")
+
+            elif "CANDLE"  in user_input and "DROP" not in user_input and "LIGHT" not in user_input and candle not in main_character.current_room.items and candle  in main_character.inventory:
+              functions.print_conversationally(f"No way you maniac. Leave some candle for the rest of us.")
 
             elif "TABLE" in user_input and table in main_character.current_room.furnitures:
               if lit_candle in main_character.inventory:
@@ -339,9 +342,6 @@ class Game:
                 else:
                   pass
 
-            elif "CANDLE"  in user_input and "DROP" not in user_input and "LIGHT" not in user_input and candle not in main_character.current_room.items and candle  in main_character.inventory:
-              functions.print_conversationally(f"No way you maniac. Leave some candle for the rest of us.")
-
             elif "CUPBOARD" in user_input:
               main_character.current_room.print_items_on_furniture(cupboard)
               main_character.current_room.add_item(matches)
@@ -351,7 +351,7 @@ class Game:
               take_matches = functions.menu("\n\nAdd to bag?",
                ["Yes", "No"])
               if take_matches == "Yes":
-                main_character.add_to_bag(Item(matches))
+                main_character.add_to_bag(matches)
                 functions.print_conversationally("You added some matches!")
                 bathroom.remove_item(matches)
               elif take_matches == "No":
@@ -577,12 +577,20 @@ cookbook = cooking.Cookbook()
 
 #COOKING
 steak = cooking.Meal("Steak", 15, "Steaklike")
-steak_recipe = cooking.Recipe("Steak")
+steak_recipe = cooking.Recipe("Steak", 15)
 
 steak_recipe.add_ingrediants([beef, salt, pepper])
 steak.add_recipe(steak_recipe)
 
 cookbook.add_meal_recipe_to_cookbook(steak)
+
+roasted_chicken = cooking.Meal("Roasted Chicken", 10, "Chickeny")
+roasted_chicken_recipe = cooking.Recipe("Roasted Chicken", 10)
+
+roasted_chicken_recipe.add_ingrediants([chicken, salt, pepper])
+roasted_chicken.add_recipe(roasted_chicken_recipe)
+
+cookbook.add_meal_recipe_to_cookbook(roasted_chicken)
 
 # print(steak_recipe.ingrediants)
 # for i in steak_recipe.ingrediants:
