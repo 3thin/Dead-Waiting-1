@@ -63,5 +63,5 @@ def hostess():
         functions.print_conversationally("Look in the bathroom. They're usually somewhere around there.")
         world.hostess_level = 2
       elif how_can_she_help == "Finding the candle":
-        functions.print_conversatioanlly("She stares at you for second then laughs. It's beautiful. 'Dude, they're on the table!'")
+        functions.print_conversationally("She stares at you for second then laughs. It's beautiful. 'Dude, they're on the table!'")
         world.hostess_level = 2
