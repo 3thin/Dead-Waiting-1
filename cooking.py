@@ -26,8 +26,9 @@ class Meal:
     self.name = "Cooked " + self.name
 
 class Recipe:
-  def __init__(self, name):
+  def __init__(self, name, nutrition):
     self.name = name
+    self.nutrition = nutrition
     self.ingrediants = []
 
   def add_ingrediants(self, list_of_ingrediants):
@@ -41,8 +42,8 @@ def cook():
   if world.oven not in world.main_character.current_room.furnitures:
     functions.print_conversationally("Where are you supposed to cook, huh?")
   else:
-    use_oven = functions.menu("Want to use the oven?", ["Yes", "No"])
-    if use_oven == "Yes":
+    use_stove = functions.menu("Want to use the stove?", ["Yes", "No"])
+    if use_stove == "Yes":
       if len(world.main_character.foods) == 0:
         functions.print_conversationally("You gots no food to cook, fool!")
       else:
@@ -69,18 +70,30 @@ def cook():
                   add_anything()
                 else:
                   functions.print_conversationally("Okay... should be REALLY tasty then...")
+                  for i in world.cookbook.recipes:
+                    for j in i.recipe:
+                      for k in j.ingrediants:
+                        if set(current_recipe).issubset(j.ingrediants):
+                          functions.print_conversationally(f"\n\nYou cooked {j.name}!")
+                          world.Food.cook_food(j)
+                          # world.main_character.add_to_bag(j)
+                          world.main_character.foods.append(j)
+                          just_cooked = True
+                          return just_cooked
+                          
               else:   
                 for i in world.cookbook.recipes:
                   for j in i.recipe:
                     for k in j.ingrediants:
                       if set(current_recipe).issubset(j.ingrediants):
                         functions.print_conversationally(f"\n\nYou cooked {j.name}!")
-                        i.cook_food()
-                        world.main_character.add_to_bag(i)
+                        world.Food.cook_food(j)
+                        # world.main_character.add_to_bag(j)
+                        world.main_character.foods.append(j)
                         just_cooked = True
                         return just_cooked
                 else:
-                  functions.print_conversationally("You cooked dogshit. Nice try asshole")
+                  functions.print_conversationally("\n\nYou cooked dogshit. Nice try asshole")
                   just_cooked = True
                   return just_cooked
             add_anything()
