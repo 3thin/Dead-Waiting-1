@@ -9,12 +9,12 @@ import person_class
 
 def light_candle():
   if world.candle_is_lit == 1:
-    functions.print_conversationally("Using your matches, you light the candle. Suddenly, you're a little bit less anxious.")
+    functions.print_conversationally("Using your matches, you light the candle. Suddenly, you're a little bit less anxious. ")
     world.main_character.heal_some(5)
     world.main_character.use_item(world.matches)
     world.main_character.use_item(world.candle)
 
-    world.main_character.add_to_bag(world.Item(world.lit_candle))
+    world.main_character.add_to_bag(world.lit_candle)
     functions.print_conversationally(colored(f"\n\nCongratulations! You added the {world.lit_candle.name} to your bag.", "green"))
 
     world.candle_is_lit = 2
