@@ -9,7 +9,7 @@ import person_class
 
 def knife():
   functions.print_conversationally("You have discovered a knife! Nice. This could come in handy. Just be careful not to–OUCH! You cut yourself on it...")
-  world.main_character.take_damage(5)
+  world.main_character.take_damage(12)
   take_knife = functions.menu("\n\nAdd to bag?", ["Yes", "No"])
   if take_knife == "Yes":
       world.main_character.add_to_bag(world.Item(world.knife))
