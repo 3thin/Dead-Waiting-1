@@ -36,14 +36,14 @@ def charismatic_bathroom_dance():
 
   if what_say == f"Yeah, {world.waitress.name}, it's me. I just need to grab the matches.":
       functions.print_conversationally(f"'Oh shoot! Sorry, my stomach feels like Pompeii. Give me a sec.'\n\nA moment. You hear shuffling and a cabinet opening then closing. The door opens a smidge and a pack of matches slide into the {world.main_character.current_room.name}.\n\n")
-      world.waitress.add_to_bag(world.Item(world.matches))
+      world.waitress.add_to_bag(world.matches)
       world.waitress.current_room.remove_item(world.matches)
       world.main_character.current_room.add_item(world.matches)
       if world.matches in world.main_character.current_room.items:
         objects.matches()
         take_matches = functions.menu("\n\nAdd to bag?", ["Yes", "No"])
         if take_matches == "Yes":
-          world.main_character.add_to_bag(world.Item(world.matches))
+          world.main_character.add_to_bag(world.matches)
           functions.print_conversationally("You added some matches!")
           world.main_character.current_room.remove_item(world.matches)
         elif take_matches == "No":
@@ -94,3 +94,4 @@ def charismatic_bathroom_dance():
       world.waitress.enter_room(world.meatLocker)
       world.main_character.take_damage(5)
       bonepart_and_waitress_scene = 2
+
