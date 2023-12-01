@@ -3,8 +3,6 @@ The first chapter of a text based video game called "Dead Waiting". The goal of 
 
 As the game expands, the world will branch out and the user can choose what direction to take based on the customers at the restaurant. Talk to the local policatians to start your political career. Get in good with the mob. Or, serve someone the mystery meat and get ready to face a zombie apocalypse.
 
-![2023-12-01 22:19:12 +0000](https://github.com/3thin/Dead-Waiting/assets/90215095/5c58c3a5-6a86-463b-836c-64443f69b152)
-
 For now, you wake up in a meat freezer with no clue as to what is going on. You must use key words in your commands to discover your surroundings. For example:
 
   "LOOK AROUND' when entering a room to see what is there
@@ -18,5 +16,11 @@ For now, you wake up in a meat freezer with no clue as to what is going on. You 
   'COOK' to cook
 
   'BAG' to see what's in your bag
+
+Please reference the gif below for help starting the game
+
+![2023-12-01 22:22:26 +0000](https://github.com/3thin/Dead-Waiting/assets/90215095/5103d188-14d1-45ef-9acb-3abcb32eeb85)
+
+
 
 By completing various tasks, you can gain or lose health, charisma, and reputation. Based on your skill level, you will fail or complete certain tasks.
